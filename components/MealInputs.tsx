@@ -76,6 +76,16 @@ const MealInput = () => {
           />
         </div>
         <div className="flex flex-col space-y-2">
+          <label>Meal</label>
+          <input
+            className="p-2 border-2 border-gray-300 bg-gray-200 rounded-md focus:outline-none focus:border-blue-300 focus:bg-white"
+            name="meal"
+            type="string"
+            value={mealInput.meal}
+            onChange={onMealValueChange}
+          />
+        </div>
+        <div className="flex flex-col space-y-2">
           <label>Weight To Increase</label>
           <input
             className="p-2 border-2 border-gray-300 bg-gray-200 rounded-md focus:outline-none focus:border-blue-300 focus:bg-white"
