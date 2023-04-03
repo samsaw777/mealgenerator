@@ -42,7 +42,7 @@ const Excercise = ({ formData, setExcerciseData, excerciseData }: Props) => {
       setLoading(true);
       const message = `Generate a workout plan to ${formData.excercise} weight targeting different muscle group each day with repitations and sets`;
       await axios
-        .post(`https://mealgenerator.vercel.app/api/openapi`, {
+        .post(`https://mealgenerator.onrender.com/api/openapi`, {
           message: message,
         })
         .then((res) => {
