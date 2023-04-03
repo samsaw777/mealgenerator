@@ -9,6 +9,8 @@ const configuration = new Configuration({
   apiKey: clientToken,
 });
 
+console.log(clientToken);
+
 export default async function handler(req: any, res: any) {
   console.log("Inside!");
   try {
