@@ -1,6 +1,5 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import { Configuration, OpenAIApi } from "openai";
-
 const clientToken = process.env.CHAT_TOKEN;
 if (!clientToken) {
   throw new Error("No chat token!");

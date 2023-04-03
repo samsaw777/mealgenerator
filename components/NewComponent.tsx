@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Breakfast from "../Images/breakfast.svg";
 import Image from "next/image";
+import { urlFetcher } from "../utils/validator";
 
 interface FormData {
   age: number | "";
@@ -74,7 +75,7 @@ function Form({
       }. Also ingredients and instructions. `;
 
       await axios
-        .post("http://localhost:3000/api/openapi", { message })
+        .post(`https://mealgenerator.vercel.app/api/openapi`, { message })
         .then((response) => {
           console.log(response.data);
           setOpenMealCard(!openMealCard);

@@ -4,6 +4,7 @@ import { FormData } from "../pages";
 import Image from "next/image";
 import Workout from "../Images/workout.svg";
 import WorkOut from "../Images/workoutloading.svg";
+import { urlFetcher } from "../utils/validator";
 
 export const checkData = (Data: string) => {
   if (
@@ -41,7 +42,9 @@ const Excercise = ({ formData, setExcerciseData, excerciseData }: Props) => {
       setLoading(true);
       const message = `Generate a workout plan to ${formData.excercise} weight targeting different muscle group each day with repitations and sets`;
       await axios
-        .post("http://localhost:3000/api/openapi", { message: message })
+        .post(`https://mealgenerator.vercel.app/api/openapi`, {
+          message: message,
+        })
         .then((res) => {
           console.log(res.data);
           setExcerciseData(res.data);
