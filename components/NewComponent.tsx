@@ -49,17 +49,29 @@ function Form({
     e.preventDefault();
     try {
       setLoading(true);
-      const message = `Hello chat GPT my age is ${
-        formData.age ? formData.age : 20
-      }  and I want to ${
-        formData.weightStatus ? formData.weightStatus : "increase"
-      } my weight by ${formData.incdecweight ? formData.incdecweight : 10} ${
-        formData.unit ? formData.unit : "kg"
-      }, please suggest me daily ${
+      // const message = `Hello chat GPT my age is ${
+      //   formData.age ? formData.age : 20
+      // }  and I want to ${
+      //   formData.weightStatus ? formData.weightStatus : "increase"
+      // } my weight by ${formData.incdecweight ? formData.incdecweight : 10} ${
+      //   formData.unit ? formData.unit : "kg"
+      // }, please suggest me weekly ${
+      //   formData.meal != "" ? formData.meal : "Indian"
+      // } ${
+      //   formData.mealType == "Veg" ? "vegetarian" : "non-vegetarian"
+      // } meal with ingredient and instructions`;
+
+      const message = `Generate a ${
         formData.meal != "" ? formData.meal : "Indian"
       } ${
         formData.mealType == "Veg" ? "vegetarian" : "non-vegetarian"
-      } meal with ingredient and instructions`;
+      } diet plan for me, my age is ${
+        formData.age ? formData.age : 20
+      }  and i want to ${
+        formData.weightStatus ? formData.weightStatus : "increase"
+      } my weight by ${formData.incdecweight ? formData.incdecweight : 10} ${
+        formData.unit ? formData.unit : "kg"
+      }. Also ingredients and instructions. `;
 
       await axios
         .post("http://localhost:3000/api/openapi", { message })
@@ -110,6 +122,7 @@ function Form({
                   type="number"
                   id="age"
                   name="age"
+                  placeholder="Eg: 20"
                   value={formData.age}
                   onChange={handleChange}
                   className="w-full p-2 border-2 border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-300 focus:bg-white"
@@ -147,6 +160,7 @@ function Form({
                   id="weight"
                   name="weight"
                   type="number"
+                  placeholder="60"
                   value={formData.weight}
                   onChange={handleChange}
                 />
@@ -164,6 +178,7 @@ function Form({
                   id="unit"
                   name="unit"
                   type="text"
+                  placeholder="Eg: Kg"
                   value={formData.unit}
                   onChange={handleChange}
                 />
@@ -181,6 +196,7 @@ function Form({
                   className="p-2 border-2 border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-300 focus:bg-white"
                   name="meal"
                   type="string"
+                  placeholder="Eg: Indian"
                   value={formData.meal}
                   onChange={handleChange}
                 />
@@ -216,6 +232,7 @@ function Form({
                   className="p-2 border-2 border-gray-300 bg-white rounded-md focus:outline-none focus:border-blue-300 focus:bg-white"
                   name="incdecweight"
                   type="string"
+                  placeholder="Eg: 10"
                   value={formData.incdecweight}
                   onChange={handleChange}
                 />

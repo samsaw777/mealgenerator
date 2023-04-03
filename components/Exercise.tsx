@@ -18,7 +18,10 @@ export const checkData = (Data: string) => {
     Data.includes("Lunch") ||
     Data.includes("Dinner") ||
     Data.includes("Ingredients") ||
-    Data.includes("Instructions")
+    Data.includes("Instructions") ||
+    Data.includes("Snack") ||
+    Data.includes("Evening snack") ||
+    Data.includes("Mid-morning snack")
   ) {
     return "font-bold text-lg";
   }

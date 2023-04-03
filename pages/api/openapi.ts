@@ -1,8 +1,13 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import { Configuration, OpenAIApi } from "openai";
 
+const clientToken = process.env.CHAT_TOKEN;
+if (!clientToken) {
+  throw new Error("No chat token!");
+}
+
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: clientToken,
 });
 
 export default async function handler(req: any, res: any) {
@@ -15,10 +20,10 @@ export default async function handler(req: any, res: any) {
       prompt: message,
       // instruction: prompt,
       max_tokens: 1000,
+      temperature: 0.3,
     });
     const data = response.data.choices[0].text;
     const splittedData = data?.split("\n");
-    console.log(splittedData);
     res.send(splittedData);
   } catch (error: any) {
     console.log(error.message);
