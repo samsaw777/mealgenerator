@@ -75,7 +75,7 @@ function Form({
       }. Also ingredients and instructions. `;
 
       await axios
-        .post(`https://mealgenerator.onrender.com/api/openapi`, { message })
+        .post(`https://mealgenerator.vercel.app/api/openapi`, { message })
         .then((response) => {
           console.log(response.data);
           setOpenMealCard(!openMealCard);
